@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+{% block company %}
+<h2> Register your company </h2>
+<form method="post">
+    {% csrf_token %}
+    {{ company_form.as_p }}
+
+
+    <button type="submit">Submit</button>
+
+</form>
+
+{% endblock %}

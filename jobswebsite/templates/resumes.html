@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+
+{% block resumes_page %}
+
+
+    <ul class="res-list">
+         <form action="{% url 'resumes' %}" method="get">
+          <input type="text" name="query" placeholder="Search resumes...">
+          <button type="submit">Search</button>
+        </form>
+    {% for res in resume %}
+        <li class="res-item">
+          <a href="{{ res.get_url }}"><h3 class="res-title">{{ res.title }}</h3></a>
+          <p class="res-description">{{ res.description }}</p>
+          <p class="res-salary"> Skills: {{ res.skills }}</p>
+        </li>
+
+        {% endfor %}
+    </ul>
+
+
+{% endblock %}

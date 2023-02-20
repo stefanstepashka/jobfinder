@@ -1,0 +1,10 @@
+{% extends 'main.html' %}
+
+{% block allresumes %}
+
+<h1>My Resumes</h1>
+{% for resume in resumes %}
+    <h2><a href="{{ resume.get_absolute_url }}">{{ resume.title }}</a></h2>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'main.html' %}
+
+{% block userprofile %}
+<h2>My Resumes</h2>
+
+<a href="{% url 'all_resumes' %}">View your resumes </a>
+<h2>Create a new Resume</h2>
+Do you want to make resume?
+<a href="{% url 'create_resume' %}" class="btn btn-primary">Create New Resume</a>
+
+{% endblock %}

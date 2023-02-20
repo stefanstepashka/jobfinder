@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+{% block resume_detal %}
+
+
+        <div class="resume">
+            <div class="resume-header">
+                <h1>{{ resume.title }}</h1>
+            </div>
+            <div class="resume-content">
+                <div class="resume-section">
+                    <h2>Skills</h2>
+                    <ul>
+                        <li>{{ resume.skills }}</li>
+                    </ul>
+                </div>
+                <div class="resume-section">
+                    <h2>Education</h2>
+                    <ul>
+                        <li>{{ resume.education }}</li>
+                    </ul>
+                </div>
+                <div class="resume-section">
+                    <h2>Experience</h2>
+                    <ul>
+                        <li>{{ resume.experience }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+{% endblock %}

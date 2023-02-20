@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+{% block job_detail %}
+
+
+
+  <div class="job-listing">
+    <h2 class="job-title">{{ jobs.title }}</h2>
+    <div class="job-details">
+      <div>
+        <p class="job-location">Location: {{ jobs.location }}</p>
+        <p class="job-salary">Salary: {{ jobs.salary }}</p>
+      </div>
+      <div>
+        <p class="job-company">Company: {{ jobs.company }}</p>
+      </div>
+    </div>
+    <p class="job-description">{{ jobs.description }}</p>
+
+        {% if not already_applied %}
+          <form method="post" action="{% url 'apply_to_job' jobs.id %}">
+              {% csrf_token %}
+              {{ form.resume }}
+              {{ form.cover_letter }}
+              <input type="submit" value="Apply">
+              {% if error %}
+                {{ error }}
+                      <a href="{% url 'user_profile' %}">My profile</a>
+            {% endif %}
+            </form>
+            {% else %}
+              <p>You have already applied for this job.</p>
+            {% endif %}
+
+    {% if num_applications %}
+    <li>{{ num_applications }} people have applied to this job </li>
+    {% endif %}
+
+    </div>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="left-column">
+    <form class="job-search-form" action="{% url 'job' %}" method="get">
+      <input type="text" name="search_job" placeholder="Search for jobs">
+      <select name="salary_min">
+    <option value="">Minimum</option>
+    <option value="70000">$70,000</option>
+    <option value="120000">$120,000</option>
+    <option value="360000">$360,000</option>
+  </select>
+  <select name="salary_max">
+    <option value="">Maximum </option>
+    <option value="70000">$70,000</option>
+    <option value="120000">$120,000</option>
+    <option value="360000">$360,000</option>
+  </select>
+      <select name="job_type">
+        <option value="">All </option>
+        <option value="in-person">In-person </option>
+        <option value="remote">Remote </option>
+      </select>
+      <button type="submit">Search</button>
+    </form>
+  </div>
+  <div class="middle-column">
+     <p>Number of jobs found: {{ jobs.paginator.count }}</p>
+    <ul class="job-list">
+      {% for job in jobs %}
+        <li class="job-item">
+          <a href="{{ job.get_absolute_url }}"><h3 class="job-title">{{ job.title }}</h3></a>
+          <p class="job-description">{{ job.description }}</p>
+          <p class="job-salary">Salary: {{ job.salary }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+
+</div>
+
+{% if jobs %}
+    <div class="pagination">
+  <span class="step-links">
+    {% if jobs.has_previous %}
+      <a href="?page={{ jobs.previous_page_number }}&search_job={{ search_job }}&salary_min={{ salary_min }}&salary_max={{ salary_max }}&job_type={{ job_type }}">Previous</a>
+    {% endif %}
+
+    <span class="current-page">{{ jobs.number }}</span>
+
+    {% if jobs.has_next %}
+      <a href="?page={{ jobs.next_page_number }}&search_job={{ search_job }}&salary_min={{ salary_min }}&salary_max={{ salary_max }}&job_type={{ job_type }}">Next</a>
+    {% endif %}
+  </span>
+</div>
+{% endif %}
+
+{% endblock %}

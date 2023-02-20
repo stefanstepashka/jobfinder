@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+  <link rel="stylesheet" href="{% static 'css/resume.css' %}">
+  <link rel="stylesheet" href="{% static 'css/resume_detail.css' %}">
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+  <link rel="stylesheet" href="{% static 'css/jobdetail.css' %}">
+  <link rel="stylesheet" href="{% static 'css/jobs.css' %}">
+
+</head>
+<body>
+
+
+ <div class="container content">
+<div class="container">
+  <div class="navbar">
+    <div class="left">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+                 <a href="{% url 'job' %}"> Jobs </a>
+        <a href="{% url 'resumes' %}">Resumes</a>
+    </div>
+    <div class="right">
+        {% if request.user.is_authenticated %}
+        <p><a href="{% url 'user_profile' %}">Welcome, {{ request.user.username }}!</a></p>
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <a href="{% url 'signup' %}">Sign up</a>
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+
+    </div>
+    </div>
+  </div>
+
+    <!-- Page content goes here -->
+  </div>
+</body>
+</html>
+{% block content %} {% endblock %}
+{% block job_detail %} {% endblock %}
+{% block login %} {% endblock %}
+{% block signup %} {% endblock %}
+{% block userprofile %} {% endblock %}
+{% block createresume %} {% endblock %}
+
+{% block viewresumes %} {% endblock %}
+{% block editresume %} {% endblock %}
+{% block resume_detal %} {% endblock %}
+{% block allresumes %} {% endblock %}
+{% block resumes_page %}
+{% endblock %}
+{% block company %}
+{% endblock %}

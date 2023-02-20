@@ -1,0 +1,81 @@
+.job-listing {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: #f2f2f2;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+
+    .job-title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .job-details {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .job-location, .job-salary, .job-company {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .job-location {
+      color: #4024ff;
+    }
+
+    .job-salary {
+      color: black;
+    }
+
+    .job-company {
+      color: #ff1538;
+    }
+
+    .job-description {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .apply-button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 20px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+
+
+.pagination a {
+  display: block;
+  padding: 8px 16px;
+  margin: 0 8px;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  color: #333;
+}
+
+.pagination a:hover {
+  background-color: #ddd;
+}
+
+.pagination .current-page {
+  background-color: #333;
+  color: #fff;
+}
+
+.pagination .disabled {
+  pointer-events: none;
+  color: #ccc;
+}

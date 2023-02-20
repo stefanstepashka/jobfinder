@@ -1,0 +1,52 @@
+{% extends 'main.html' %}
+
+{% block editresume %}
+
+<div class="container">
+  <h1 class="text-center my-5">Edit Resume</h1>
+  <form action="{% url 'edit_resume' resume.id %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        name="title"
+        value="{{ form.title.value }}"
+      />
+    </div>
+    <div class="form-group">
+      <label for="skills">Skills</label>
+      <textarea
+        class="form-control"
+        id="skills"
+        name="skills"
+        rows="3"
+      >{{ form.skills.value }}</textarea>
+    </div>
+    <div class="form-group">
+      <label for="education">Education</label>
+      <textarea
+        class="form-control"
+        id="education"
+        name="education"
+        rows="3"
+      >{{ form.education.value }}</textarea>
+    </div>
+    <div class="form-group">
+      <label for="experience">Experience</label>
+      <textarea
+        class="form-control"
+        id="experience"
+        name="experience"
+        rows="3"
+      >{{ form.experience.value }}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+
+
+{% endblock %}
